@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>锚链接demo</title>
+		<style type="text/css">
+			* {padding: 0;margin: 0;}
+			ul li{list-style: none}
+			.content{width: 100%;height: 600px;background: #000;}
+			/*===up====*/
+			.up {width: 100%;height: 100px;margin: 0 auto;padding-top: 50px;}
+			.up li {text-align: center;float: left;width: 20%;height: 100%;line-height: 100px;}
+			.up li a {font-size:18px;text-align: center;float: left;width: 100%;height: 100%;line-height: 100px;display: block;text-decoration: none;color: #fff;}
+			/*===down====*/
+			.down {width: 100%;height: 400px;margin: 0 auto;line-height: 400px;text-align: center;overflow: hidden;}
+			.down li {width: 100%;height: 400px;font-size: 40px;color: #fff;font-weight: bold;}
+			/*==bgcolor==*/
+			.one {background: aqua;}
+			.two {background: magenta;}
+			.three {background: gold;}
+			.four {background: hotpink;}
+			.five {background: saddlebrown;}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<ul class="up">
+				<li class="one">
+					<a href="#one">导航1</a>
+				</li>
+				<li class="two">
+					<a href="#two">导航2</a>
+				</li>
+				<li class="three">
+					<a href="#three">导航3</a>
+				</li>
+				<li class="four">
+					<a href="#four">导航4</a>
+				</li>
+				<li class="five">
+					<a href="#five">导航5</a>
+				</li>
+			</ul>
+			<ul class="down">
+				<li id="one" class="one">导航一内容模块</li>
+				<li id="two" class="two">导航二内容模块</li>
+				<li id="three" class="three">导航三内容模块</li>
+				<li id="four" class="four">导航四内容模块</li>
+				<li id="five" class="five">导航五内容模块</li>
+			</ul>
+		</div>
+	</body>
+</html>

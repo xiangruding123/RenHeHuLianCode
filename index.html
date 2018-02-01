@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<!--这meta的作用就是删除默认的苹果工具栏和菜单栏。
+		content有两个值”yes”和”no”,当我们需要显示工具栏和菜单栏时，这个行meta就不用加了，默认就是显示。-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="email=no" />
+		
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="yes" name="apple-touch-fullscreen" />
+		<meta content="telephone=no,email=no" name="format-detection" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+		
+		<title>移动端-信息接口测试</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	
+	<body>
+		<header>我是头部</header>
+		<section>
+			<!-----------渲染页面部分------------------------>
+			<section id="tpl_list"></section>
+				<script id="tplList" type="text/html">
+					<%for(var i=0;i<data.length;i++){%>
+						<p><span><%=data[i].typeId%></span>、<span><%=data[i].typeName%></span></p>
+			        	<%for(var j=0;j<data[i].noticeNews.length;j++){%>
+			                <li>
+			                	<span>事件：<span><p><%=data[i].noticeNews[j].noticeContent%></p>
+			                	<span>时间：<span><p><%=data[i].noticeNews[j].sendTime%></p>
+			                </li>
+		                <%}%>
+		            <%}%>
+				</script>
+			</section>
+			<!---------------------------------------->
+		<footer>
+			<button>左侧按钮</button>
+			<button>右侧按钮</button>
+		</footer>
+		
+		<!--<a class="toTop" href="javascript:scroll(0,0)">toTop</a>-->
+		
+		<script src="js/lib/jquery-2.1.0.js"></script>
+		<script src="js/lib/template.js"></script>
+		<script src="js/test.js"></script>
+		<script>
+			//获取滚动条当前的位置
+		    function getScrollTop() {
+		        var scrollTop = 0;
+		        if (document.documentElement && document.documentElement.scrollTop) {
+		            scrollTop = document.documentElement.scrollTop;
+		        } else if (document.body) {
+		            scrollTop = document.body.scrollTop;
+		        }
+		        return scrollTop;
+		    };
+			//回到顶部
+		    function toTop(n) {
+		        $(window).on('scroll', function(){
+		            //alert(getScrollTop()+"!"+getScrollHeight());
+		            if ($("#totop").size() > 0){
+		                if (getScrollTop() < $(window).height() * n){
+		                    $("#totop").remove();
+		                }
+		            } else {
+		                if (getScrollTop() >= $(window).height() * n){
+		                    $("body").after("<div id='totop'>top</div>");
+		                    $("#totop").on('click', function(){
+		                        scroll(0,200);
+		                    });
+		                }
+		            }
+		        });
+		    };
+		    
+		    toTop(2);
+		    /*
+		     * 添加totop的文字内容
+		     */
+		    
+		    function fun(){
+		    	$("#totop").append("Hello world!");
+		    	console.log($("#totop").text());
+		    }
+		    
+		    fun();
+		</script>
+	</body>
+</html>

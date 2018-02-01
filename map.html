@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<title>地图展示案例-tab页面中</title>
+		<style type="text/css">
+			#allmap {
+				margin: 0 auto;
+				width: 100%;
+				height: 600px;
+				overflow: hidden;
+				margin: 0;
+				font-family: "微软雅黑";
+			}
+			.cc{
+				width:100%;
+				height: 100%;
+			}
+			#cc{
+				width:100%;
+				height: 100%;
+			}
+			
+			.tab-head{
+				display: flex;
+			}
+			h2 {
+				flex: 1;
+                border-top: solid cornflowerblue 1px;
+                border-left: solid cornflowerblue 1px;
+                width: 100%;
+                height: 35px;
+                margin: 0;
+                float: left;
+                text-align: center;
+            }
+            
+            .tab-content {
+                border: 1px solid red;
+                width: 100%;
+                /*height: 500px;*/
+               height: auto;
+            }
+            
+            .tab-content div{
+                display: none;
+            }
+            
+            .selected {
+                background-color: cornflowerblue;
+            }
+            
+            .tab-content .show{
+                display: block;
+            }
+            
+		</style>
+		<!--<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=HMdiChyaSVl5MIYR0DZU0Fr4XNg3BqI7"></script>-->
+		
+		<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=HMdiChyaSVl5MIYR0DZU0Fr4XNg3BqI7"></script>-->
+	</head>
+
+	<body>
+		<div class="">
+			
+			<div class="tab-head">
+	            <h2 id="tab1" class="selected">1</h2>
+	            <h2 id="tab2">2</h2>
+	            <h2 id="tab3">3</h2>
+	        </div>
+	        
+	        <div class="tab-content">
+	            <div id="c1" class="show">content1</div>
+	            <div id="c2">content2</div>
+	            <div id="c3">
+	            	content3
+	            	<!--<div id="allmap"></div>-->
+	            </div>
+	        </div>
+        </div>
+        
+        <div id="allmap"></div>
+        
+		<!--<div class="cc">
+			<div id="cc">
+				<p>11111111</p>
+				<p>11111111</p>
+				<p>11111111</p>
+				<div id="allmap"></div>
+			</div>
+		</div>-->
+		<!--<div id="allmap"></div>-->
+	</body>
+
+</html>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=nih2vVHvpT04Uae7i4dCASAgdFi7z0ZG"></script>
+
+<script>
+	// 百度地图API功能
+	var map = new BMap.Map("allmap"); // 创建Map实例
+	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11); // 初始化地图,设置中心点坐标和地图级别
+	map.addControl(new BMap.MapTypeControl()); //添加地图类型控件
+	map.setCurrentCity("北京"); // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+	
+</script>
+<script type="text/javascript">
+	(function (){
+		var tabs = document.getElementsByClassName('tab-head')[0].getElementsByTagName('h2'),
+	        contents = document.getElementsByClassName('tab-content')[0].getElementsByTagName('div');
+	
+	    (function changeTab(tab) {
+	        for(var i = 0, len = tabs.length; i < len; i++) {
+	            tabs[i].onclick = showTab;
+	        }
+	    })();
+	
+	    function showTab() {
+	        for(var i = 0, len = tabs.length; i < len; i++) {
+	            if(tabs[i] === this) {
+	                tabs[i].className = 'selected';
+	                contents[i].className = 'show';
+	            } else {
+	                tabs[i].className = '';
+	                contents[i].className = '';
+	            }
+	        }
+	    }
+    })();
+</script>

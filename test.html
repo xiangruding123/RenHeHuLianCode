@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<script src="js/jquery-2.1.0.js"></script>
+	</head>
+
+	<body>
+		<div>
+			<table width="75%" border="1" height="200">
+				<tr>
+					<th class="a">id</th>
+					<th class="a">name</th>
+					<th class="a">age</th>
+					<th class="a">sex</th>
+					<th class="b">操作</th>
+				</tr>
+				<tr>
+					<td class="a">1</td>
+					<td class="a">张三</td>
+					<td class="a">23</td>
+					<td class="a">男</td>
+					<td class="b"></td>
+				</tr>
+				<tr>
+					<td class="a">2</td>
+					<td class="a">李四</td>
+					<td class="a">24</td>
+					<td class="a">女</td>
+					<td class="b"></td>
+				</tr>
+				<tr>
+					<td class="a">3</td>
+					<td class="a">王五</td>
+					<td class="a">25</td>
+					<td class="a">男</td>
+					<td class="b"></td>
+				</tr>
+			</table>
+		</div>
+		<script>
+			$(document).ready(function() {
+				$("td[class='a']").click(function() {
+					查询所有子元素
+					var tdlist = $(this).parent().children();
+					tdlist.each(function(i) {
+						if(tdlist.eq(i).html().indexOf("input") < 0) {
+							if(tdlist.length == (i + 1)) {
+								tdlist.eq(i).html("<button>确定</button>")
+							} else {
+								var txt = tdlist.eq(i).text();
+								tdlist.eq(i).html("<input type='text' value='" + txt + "'/>")
+							}
+						}
+					});
+				});
+				$("td").delegate("button", "click", function() {
+					var tdlist = $(this).parent().parent().children()
+					tdlist.each(function(i) {
+						if(tdlist.length != (i + 1)) {
+							alert(tdlist.eq(i).children().eq(0).val());
+							tdlist.eq(i).text(tdlist.eq(i).children().eq(0).val())
+						} else {
+							tdlist.eq(i).text("");
+						}
+					})
+				});
+			});
+			$(document).ready(function() {
+				$("td[class='a']").click(function() {
+					var s = "<tr style='display:none'>";
+					var tdlist = $(this).parent().children();
+					tdlist.each(function(i) {
+						var txt = tdlist.eq(i).text();
+						if(tdlist.eq(i).html().indexOf("input") < 0 && tdlist.eq(i).html().indexOf("button") < 0) {
+
+							if(tdlist.length == (i + 1)) {
+								s += "<td><button>确定</button></td>"
+							} else {
+								s += "<td><input type='text' value='" + txt + "'/></td>";
+							}
+						}
+					});
+					s += "</tr>";
+					$(this).parent().after(s).next().fadeIn("5000");
+				});
+				$(this).delegate("button", "click", function() { //this为当前的td
+					var ttt = $(this).parent().parent(); //当前的tr
+					var ppp = ttt.children(); //当前的td
+					ppp.each(function(i) {
+						var pp = ppp.eq(i).children().eq(0).val(); //当前input的值
+						var tra = ttt.prev().children(); //上一级td
+						alert(tra.eq(i).val())
+						if((i + 1) != ppp.length) {
+							tra.eq(i).text(pp); //上一级的值
+							ttt.fadeOut(); //当前tr隐藏
+						} else {
+							tra.eq(i).text("");
+						}
+					})
+				});
+			});
+		</script>
+	</body>
+
+</html>

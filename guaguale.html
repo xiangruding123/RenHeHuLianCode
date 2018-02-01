@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="screen-orientation" content="portrait">
+		<script src="js/lib/jquery-2.1.0.js"></script>
+		<title>JS刮刮乐</title>
+		<style>
+			.box {
+				position: relative;
+				width: 200px;
+				height: 200px;
+				background: url("img/gao1.jpg") no-repeat;
+				background-size: 100% 100%;
+				text-align: center;
+				line-height: 200px;
+			}
+			
+			#myCanvas {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" class="box">
+
+			<canvas id="myCanvas" width="200" height="200"></canvas>
+		</div>
+		<input type="submit" value="再来一次" onclick="location.reload()" />
+		<script type="text/javascript">
+			var arr = ["img/", "img/bb.png", "img/cc.png", "img/dd.png"];
+			window.onload = function() {
+				console.log((Math.random() * 3).toFixed(0) + "+" + arr[(Math.random() * 3).toFixed(0)]);
+				var myCanvas = document.getElementById("myCanvas");
+				var can = myCanvas.getContext("2d");
+				var X = myCanvas.width;
+				var Y = myCanvas.height;
+				var oImg = new Image();
+				oImg.src = "img/gao4.jpeg";
+				var device = /android|iphone|ipad|ipod|webos|iemobile|opear mini|linux/i.test(navigator.userAgent.toLowerCase());
+				oImg.onload = function() {
+					can.beginPath();
+					can.drawImage(oImg, 0, 0, X, Y);
+					can.closePath();
+				}
+
+				var tochstrat = device ? "touchstart" : "mousedown";
+				var tochmove = device ? "touchmove" : "mousemove";
+				var tochend = device ? "touchend" : "mouseup";
+
+				function draw(event) {
+					var x = device ? event.touches[0].clientX : event.clientX;
+					var y = device ? event.touches[0].clientY : event.clientY;
+					console.log("X:" + x + "Y:" + y);
+					can.beginPath();
+					//     
+					can.globalCompositeOperation = "destination-out";
+					can.arc(x, y, 20, 0, Math.PI * 2, false);
+					can.fill();
+					can.closePath();
+				}
+				myCanvas.addEventListener(tochstrat, function() {
+					myCanvas.addEventListener(tochmove, draw, false);
+				}, false);
+				myCanvas.addEventListener(tochend, function() {
+					myCanvas.addEventListener(tochmove, draw, false);
+				}, false);
+				$("#box").css("background-image", "url(" + arr[(Math.random() * 3).toFixed(0)] + ")");
+			}
+		</script>
+	</body>
+
+</html>

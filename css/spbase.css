@@ -1,0 +1,123 @@
+@charset 'UTF-8';
+* {
+	font-family: '微软雅黑';
+	font-weight: normal;
+	font-style: normal;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+body,
+html {
+	font-size: 10px;
+}
+
+div::-webkit-scrollbar,
+ul::-webkit-scrollbar {
+	display: none
+}
+
+body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	vertical-align: middle
+}
+
+input {
+	border: none;
+	line-height: normal;
+	font-size: 1.6rem;
+	height: 16px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	outline: none
+}
+
+.textarea {
+	width: 96%;
+	border: 1px solid #e5e5e5;
+	padding: 3% 2%;
+	overflow: auto;
+	border-radius: 0;
+	-webkit-appearance: none;
+	resize: none;
+	color: #999;
+	font-size: 1.4rem;
+	line-height: 1.5em
+}
+
+.textarea textarea {
+	outline: none;
+	width: 100%;
+	color: #999;
+	font-size: 1.4rem;
+	line-height: 1.5em;
+	border: none;
+	resize: none;
+}
+
+input {
+	-webkit-appearance: none;
+	border-radius: 0
+}
+
+.textarea span {
+	font-size: 1.2rem;
+	line-height: 1.5em;
+	color: #999;
+	float: right;
+}
+
+.zz {
+	background: rgba(0, 20, 38, 0.85);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	display: none;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.clear {
+	clear: both;
+}
+
+.red {
+	color: red
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

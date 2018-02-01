@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			
+			//使用json中的parser方法转换；
+			var str = '{"name":"fendouer", "age":23}';
+			var ob = JSON.parse(str); //返回一个新对象
+			console.log(str); //{"name":"fendouer", "age":23}
+			console.log(ob.name) //fendouer
+
+			//把json中的stringify对象转换成字符串 
+
+			var obj = {
+				"student": [{
+					"name": "cyl",
+					"age": "21"
+				}, {
+					"name": "hyj",
+					"age": "23"
+				}]
+			};
+			
+			var str = obj.student[0].name;
+			console.log(str); //cyl
+			var newstr = JSON.stringify(str); //返回一个新字符串
+			console.log(newstr); //"cyl"
+			
+			
+		</script>
+	</body>
+
+</html>

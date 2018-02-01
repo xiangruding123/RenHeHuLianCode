@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="description" content="aportpower"/>
+		<title></title>
+		<style type="text/css">
+			.tubiao{
+				width: 100%;
+				height: 200px;
+				border: 1px solid #000;
+				background: #333;
+			}
+			.tubiao span{
+				float: right;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				margin-top: 85px;
+				margin-right: 85px;
+				background: url(../img/tab_collection_normal.png) no-repeat center;
+				background-size: 100% 100%;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tubiao"><span></span></div>
+		<script src="../js/lib/jquery-2.1.0.js"></script>
+		
+		<script type="text/javascript">
+			
+			var flag = 1;
+			$(".tubiao span").unbind().bind('click',function(){
+				if (flag) {
+					//$(this).css("background","red");
+					
+					$(this).css({"background":"url(../img/tab_collection_light.png) no-repeat center", "background-size":"100% 100%"});
+					console.log("tab_collection_light.png");
+					flag=0;
+				} else{
+					//$(this).css("background","magenta");
+					
+					$(this).css({"background":"url(../img/tab_collection_normal.png) no-repeat center", "background-size":"100% 100%"});
+					console.log("tab_collection_normal.png");
+					flag=1;	
+				}
+			})
+
+		</script>
+	</body>
+</html>

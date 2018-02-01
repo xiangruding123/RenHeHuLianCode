@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<meta name="description" content="aportpower"/>
+		
+        <title></title>
+        <style type="text/css">
+            .fh-link-bar {
+                border-top: none;
+            }
+            .fh-link-bar {
+                background-color: #fff;
+                border: 1px solid #eaeaea;
+                border-left: none;
+                border-right: none;
+                padding: 10px;
+                height: 50px;
+                line-height: 30px;
+                font-size: 14px;
+            }
+            #personsex{
+                float: right;
+            }
+            .personsex {
+                background: magenta;
+                width: 150px;
+                height: 180px;
+                line-height: 40px;
+                text-align: center;
+                border-radius: 2px;
+                z-index: 104;    /*层级关系为104*/
+                /*只是用来控制位置的*/
+                position: absolute;
+                margin: 100px auto;
+                font-size: 20px;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+            
+            
+            /*一定要记得添加样式（必须）*/
+            .loading-shade {
+                position: fixed;    /*窗口定位*/
+                background: rgba(0,0,0,.5);    /*遮罩层的颜色*/
+                z-index: 102;            /*层级关系为102*/
+            }
+            .loading-shade{
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <!--页面上原先有的内容（用来执行点击）-->
+        <section class="fh-link-bar" id="sexlog">
+                 <span>性别</span>
+                <span class="fh-data" id="personsex">男</span>
+        </section>
+        <!--页面上原先没有的内容（用来执行点击后生成的提示框）-->
+        <div class="personsex" style="display: none;">
+            <p>保密</p>
+            <p>男</p>
+            <p>女</p>
+        </div>
+    </body>
+    
+    <script src="../js/lib/jquery-2.1.0.js"></script>
+    <script type="text/javascript">
+    
+        //添加页面遮罩
+        function addShade() {
+            var htmlHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+            $("body").append('<div class="loading-shade"></div>');
+            //$(".loading-shade").css("height",htmlHeight+"px");
+            $(".loading-shade").css("100%");
+        }/*删除页面遮罩*/
+        function removeShade() {
+            $(".loading-shade").remove();
+        }
+    
+        /*页面遮罩点击关闭弹出层
+         * dom=>#id
+         * type => hide || remove
+         * */
+        function closeDiv(dom, type) {
+            $(".loading-shade").click(function() {
+                type == "hide" ? $(dom).hide() : $(dom).remove();
+                $(".loading-shade").remove();
+            })
+        }
+        
+        //需要调用的页面添加的js（这里是点击上边的div(即：.personsex p元素)的时候实现遮罩层消失。）
+//      $('#sexlog,#personsex').unbind("click").bind("click",function(){
+//           addShade();
+//           $('.personsex').show();
+//      });
+//      
+//      $('.personsex p').bind('click',function(){
+//           $('.loading-shade').remove();
+//           $('.personsex').hide();
+//      });
+		
+		//======================================================================================
+		
+		//需要调用的页面添加的js（这里是点击遮罩层实现遮罩层（即：.loading-shade）页面关闭）
+		 $('#sexlog,#personsex').unbind("click").bind("click",function(){
+             addShade();
+             $('.personsex').show();
+             del();
+        });
+        
+        function del(){
+        	 $('.loading-shade').bind('click',function(){
+	             $('.loading-shade').remove();
+	             $('.personsex').hide();
+	        });
+        }
+        
+    </script>
+</html>
