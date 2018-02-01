@@ -8,14 +8,14 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="format-detection" content="telephone=no">
 		<meta name="screen-orientation" content="portrait">
-		<script src="js/lib/jquery-2.1.0.js"></script>
+		<script src="js/jquery-2.1.0.js"></script>
 		<title>JS刮刮乐</title>
 		<style>
 			.box {
 				position: relative;
 				width: 200px;
 				height: 200px;
-				background: url("img/gao1.jpg") no-repeat;
+				background: url("img/002.png") no-repeat;
 				background-size: 100% 100%;
 				text-align: center;
 				line-height: 200px;
@@ -28,15 +28,13 @@
 			}
 		</style>
 	</head>
-
 	<body>
 		<div id="box" class="box">
-
 			<canvas id="myCanvas" width="200" height="200"></canvas>
 		</div>
 		<input type="submit" value="再来一次" onclick="location.reload()" />
 		<script type="text/javascript">
-			var arr = ["img/", "img/bb.png", "img/cc.png", "img/dd.png"];
+			var arr = ["img/006.png", "img/003.png", "img/004.JPG", "img/005.png"];
 			window.onload = function() {
 				console.log((Math.random() * 3).toFixed(0) + "+" + arr[(Math.random() * 3).toFixed(0)]);
 				var myCanvas = document.getElementById("myCanvas");
@@ -44,7 +42,7 @@
 				var X = myCanvas.width;
 				var Y = myCanvas.height;
 				var oImg = new Image();
-				oImg.src = "img/gao4.jpeg";
+				oImg.src = "img/002.png";
 				var device = /android|iphone|ipad|ipod|webos|iemobile|opear mini|linux/i.test(navigator.userAgent.toLowerCase());
 				oImg.onload = function() {
 					can.beginPath();
