@@ -1,0 +1,59 @@
+
+
+//js获取到页面上
+$(function(){
+		
+		$.get("left.json", function(obj){	
+			if(typeof obj == "string")obj=eval("("+obj+")");
+			var arr=obj.list1;
+			
+	       $.each(arr, function(i){
+	       	
+	     
+				var o=arr[i];
+				//console.log(o.title);
+				
+				var li=$("<li></li>");
+				var img=$("<img />");
+				
+				var a=$("<a href='##' ><span style='color:red;'>"+o.title+"</span><span>"+o.content+"</span></a>")
+				
+				var div_01=$("<div class='div_01'> <span class='cel_left'><em>￥</em>"+o.price1+"</span> <span class='cel_right'>"+o.person+"</span></div>");
+				
+				li.append(img);
+				li.append(a);
+				li.append(div_01);
+				$(".content_cleftbtm_ul").append(li);  //添加到ul中
+				
+				
+				img.attr("src", "img/"+o.pic).css({"width":"160", "height":"160"});
+				a.attr("href", "show.html?id="+o.id).css("color", "black");
+				$(".div_01").css({"font-size":"12", "font-family":"微软雅黑"});
+				$(".cel_left").css({"font-size":"12", "font-family":"微软雅黑", "float":"left", "color":"red"});
+				
+				$(".cel_right").css({"font-size":"8", "font-family":"微软雅黑", "float":"right", "color":"#777"});
+			});
+		});	
+		
+		
+	});
+
+
+
+
+
+//json格式
+
+{"list1":[
+	{"id":"k1", "guige":"100ml", "price1":"100.29", "person":"80人已购买", "title":"8.3折/", "content":"兰芝水库凝肌精华露60ml", "pic":"lie1.jpg"},
+	{"id":"k2", "guige":"100ml", "price1":"81.80", "person":"14人已购买", "title":"4.6折", "content":"CLIO 珂莱殴黄金蜗牛素颜霜，黄金的蜗", "pic":"lie2.jpg"},
+	{"id":"k3", "guige":"100ml", "price1":"108.54", "person":"21人已购买", "title":"9.0折", "content":"婵真银杏天然乳液130ml", "pic":"lie3.jpg"},
+	{"id":"k4", "guige":"100ml", "price1":"12.09", "person":"18人已购买", "title":"3.1折", "content":"婵真银杏天您滋润、清新的肌肤", "pic":"lie4.jpg"},
+	{"id":"k5", "guige":"100ml", "price1":"123.89", "person":"10人已购买", "title":"8.9折", "content":"30ml，献给您滋润、清新的肌肤", "pic":"lie5.jpg"}
+  ],
+}
+
+
+
+
+

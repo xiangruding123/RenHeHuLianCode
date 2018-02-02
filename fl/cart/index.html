@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>水果批发商</title>
+<link href="images/1.jpg" rel="shortcut icon" />
+<style>
+*{margin:0;padding:0;}
+li{ list-style:none;}
+#box{width:800px; margin-top:40px;}
+#box li{width:200px;float:left; text-align:center; padding-bottom:20px;}
+img{width:180px; height:150px; border:1px solid gray;}
+#cart li{ text-align:center; padding-bottom:20px;}
+#div1{ position:fixed; right:0; top:0; bottom:0; width:300px; border-left:1px solid red; overflow:hidden;}
+#div1 ul{width:250px; height:100%; background:gray; position:absolute; right:-250px; top:0; overflow:auto;}
+#div1 ol{width:50px; height:100%; background:black; position:absolute; right:0; top:0;} 
+#div1 ol li{color:white;}
+#img1{display:none; position:absolute; left:0; top:0;}
+#ul1{ height:30px; position:fixed; top:0; width:100%; background:skyblue;}
+#ul1 li{float:left; width:150px;}
+</style>
+<script src="startMove.js"></script>
+<script src="cookie.js"></script>
+<script src="ajax.js"></script>
+<script>
+var arr;//全局变量，表示商品列表
+var fenlei;
+window.onload=function(){
+	//把商品数据加载到页面中
+	var url="json.json?t="+new Date().getTime();
+	ajax.get(url, function(str){
+		var obj=eval("("+str+")");
+		arr=obj.list;
+		//var li;
+		/*var box=document.getElementById("box");
+		for(var i=0; i<arr.length; i++){
+			var o=arr[i];
+			li=document.createElement("li");
+			//var a="<a href=\"javascript:addCart('"+o.id+"');\">添加到购物车</a>";
+			//var a="<a href='javascript:addCart(\""+o.id+"\");'>添加到购物车</a>";
+			//var a='<a href="javascript:addCart(\''+o.id+'\');">添加到购物车</a>';
+			//在行间绑定函数时，该函数必须是全局函数，函数不能写在window.onload内
+			li.innerHTML="<img id='i"+o.id+"' src='images/"+o.img+"' /><br>"+o.title+"<br>￥"+o.price+"<br><a href='javascript:addCart("+o.id+");'>添加到购物车</a>";
+			box.appendChild(li);
+		}*/
+		showGoods(-1);
+		//第一步：在json中写数据分类
+		//第二步：显示商品分类
+		fenlei=obj.type;
+		var li=document.createElement("li");
+		li.innerHTML="<a href='javascript:showGoods(-1);'>全部</a>";
+		ul1.appendChild(li);
+		for(var i=0; i<fenlei.length; i++){
+			li=document.createElement("li");
+			li.innerHTML="<a href='javascript:showGoods("+i+");'>"+fenlei[i]+"</a>";
+			ul1.appendChild(li);
+		}
+	});	
+	showCart();
+	ol.onmouseover=cart.onmouseover=function(){
+		startMove(cart, {right:50});
+		//startMove(div1, {width:300});
+	}
+	ol.onmouseout=cart.onmouseout=function(){
+		startMove(cart, {right:-250});
+		//startMove(div1, {width:50});
+	}
+	li3.onclick=function(){
+		var str=document.cookie;
+		var arr=str.split("; ");
+		for(var i=0; i<arr.length; i++){
+			var col=arr[i].split("=");
+			if( /^g[0-9]+$/.test(col[0]) ){//判断cookie是否是商品cookie
+				setCookie(col[0], "", -10);
+				//console.log(col[0])
+			}
+		}
+		showCart();
+	}
+}
+//第三步：根据分类显示商品
+function showGoods(type){//alert(type);//-1指全部	n指下标	
+	var li;
+	var box=document.getElementById("box");
+	box.innerHTML="";
+	for(var i=0; i<arr.length; i++){
+		var o=arr[i];
+		if(o.type==type || type==-1){
+			li=document.createElement("li");
+			li.innerHTML="<a href='show.html?id="+o.id+"'><img id='i"+o.id+"' src='images/"+o.img+"' /></a><br>"+o.title+"<br>￥"+o.price+"<br><a href='javascript:addCart("+o.id+");'>添加到购物车</a>";
+			box.appendChild(li);
+		}
+	}
+}
+//添加到购物车（把点击的商品保存到cookie中）
+function addCart(id){//id指商品的id
+	//根据id获取cookie
+	var txt=getCookie("g"+id);
+	var obj, str, num;
+	if(txt==""){
+		//表示该cookie不存在
+		obj=getGoods(id);//根据id，得到商品对象
+		num=1;		
+	}else{
+		//表示该cookie存在
+		obj=eval("("+txt+")");
+		num=obj.num+1;		
+	}
+	str="{'id':'"+obj.id+"', 'title':'"+obj.title+"', 'img':'"+obj.img+"', 'price':"+obj.price+", 'num':"+num+"}";
+	setCookie("g"+id, str, 10);
+	
+	
+	var img=document.getElementById("i"+id);
+	var img1=document.createElement("img");
+	document.body.appendChild(img1);
+	img1.style.position="absolute";
+	img1.style.left=img.offsetLeft+"px";
+	img1.style.top=img.offsetTop+"px";
+	img1.style.width=img.offsetWidth+"px";
+	img1.style.height=img.offsetHeight+"px";
+	img1.style.border="1px solid blue";
+	img1.style.display="block";
+	img1.src=img.src;
+	//img1.style.opacity=1;
+	//alert(li.offsetLeft+","+li.offsetTop)
+	startMove(img1, {
+		left:document.documentElement.clientWidth-li1.offsetWidth, 
+		top:document.documentElement.scrollTop+li1.offsetTop,
+		width:10,
+		height:10	
+	},function(){
+		//img1.style.display="none";
+		document.body.removeChild(img1);
+		showCart();
+	});
+}
+//根据ID，在商品列表中得到具体的商品信息
+function getGoods(id){
+	for(var i=0; i<arr.length; i++){
+		var o=arr[i];
+		if(o.id==id){
+			return o;
+		}
+	}
+}
+//删除商品
+function delGoods(id){
+	var txt=getCookie("g"+id);
+	var obj=eval("("+txt+")");
+	obj.num--;
+	if(obj.num<=0){//删除cookie
+		setCookie("g"+id, "", -10);
+	}else{//更改num数量
+		var str="{'id':'"+obj.id+"', 'title':'"+obj.title+"', 'img':'"+obj.img+"', 'price':"+obj.price+", 'num':"+obj.num+"}";
+		setCookie("g"+id, str, 10);
+	}
+	showCart();
+}
+//把cookie中的商品信息，显示在购物车容器中
+function showCart(){
+	var cart=document.getElementById("cart");
+	cart.innerHTML="";//清空内容才是覆盖。不清空内容为追加
+	var str=document.cookie;
+	var arr=str.split("; ");
+	var count=0;
+	var zongjia=0;
+	//li1.innerHTML=count;
+	for(var i=0; i<arr.length; i++){
+		var col=arr[i].split("=");
+		if( /^g[0-9]+$/.test(col[0]) ){//判断cookie是否是商品cookie
+			var o=eval("("+decodeURIComponent(col[1])+")");
+			var li=document.createElement("li");
+			li.innerHTML="<img src='images/"+o.img+"' /><br>"+o.title+"<br>单价：￥"+o.price+"<br>数量："+o.num+"&nbsp;&nbsp;<a href='javascript:delGoods("+o.id+");'>删除</a><br>总价：￥"+(o.price*o.num)+"<br>";
+			cart.appendChild(li);
+			count+=o.num;
+			zongjia+=(o.price*o.num);
+		}
+	}
+	//alert(count);
+	li1.innerHTML=count;
+	li2.innerHTML=zongjia;
+}
+</script>
+</head>
+<body>
+
+
+<ul id="ul1"></ul>
+<ul id="box"></ul>
+
+<div id="div1">
+	<ul id="cart"></ul>
+	<ol id="ol">
+		<li id="li1">0</li>
+		<li id="li2">0</li>
+		<li id="li3">clear</li>
+	</ol>
+</div>
+
+<!--<img id="img1" />-->
+
+</body>
+</html>

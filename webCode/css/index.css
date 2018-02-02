@@ -1,0 +1,304 @@
+.mar0{
+	margin: 0 auto;
+}
+.w{
+	width: 100%;
+}
+/*================================*/
+/*bannar图*/
+.bannar {
+	width: 100%;
+	position: relative;
+	font-size: 18px;
+}
+.iabout {
+	height: auto;
+	position: absolute;
+	right: 1.20rem;
+	top: .35rem;
+	z-index: 100;
+	color: #fff;
+}
+.iabout a {
+	display: inline-block;
+	font-size: 18px;
+	color: #fff;
+}
+.container1 {
+	text-align: center;
+	background: url(../images/index/bg_banner.png) no-repeat 100% 100%;
+	background-size: 100% 100%;
+}
+.swiper-slide {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.swiper-slide img {
+	text-align: center;
+	width: 16.60rem;
+	display: block;
+}
+.swiper-pagination-bullet-active{
+	background: url(../images/index/circle_light.png) no-repeat 100% 100%;
+}
+.swiper-pagination-bullet{
+	width: 18px;
+	height: 18px;
+}
+.pagsing{
+	background: url(../images/index/circle_normal.png) no-repeat 100% 100%;
+}
+
+.swiperprev{
+	width: 38px;
+	height: 50px;
+	background: url(../images/index/banner_left.png) no-repeat;	
+}
+
+.swipernext{
+	width: 38px;
+	height: 50px;
+	background: url(../images/index/banner_right.png) no-repeat;	
+}
+
+/*----下载安卓iOS的链接按钮-------*/
+.btnstore {
+	width: auto;
+	height: 54px;
+	position: absolute;
+	right: 40px;
+	bottom: 25px;
+	z-index: 100;
+}
+.btnstore a {
+	display: inline-block;
+}
+.btnstore img {
+	width: 156px;
+	height: 54px;
+	margin: 0 20px;
+}
+
+/*=================*/
+/*-----首页产品标题（2个）----------*/
+.maintitle{
+	height: 1.20rem;
+	line-height: 1.30rem;
+	color: #000;
+	font-size: 30px;
+	text-align: center;
+}
+
+/*=====APP模板模块==============*/
+.mainmodule{
+	margin: 0 auto;
+	width: 100%;
+	height: 4.52rem;
+	position: relative;
+	padding: 20px 0;
+}
+.container2{
+    height: 100%;
+    padding: 30px 83px;
+    box-sizing: content-box;   
+}
+.slidem{
+    height: 100%;
+    display:flex;
+	justify-content:center;
+}
+.slidem img{
+	align-self:center;
+	width: 98%;
+	height: 100%;
+    display: block;
+    margin: 0 4px;
+    cursor: pointer;
+	transition: all 0.5s;
+	z-index: 9999;
+}
+.slidem img:hover{
+ 	transform: scale(1.1);
+ 	z-index: 9999;
+}
+.prevmfaster{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	width: 85px;
+	height: 100%;
+	background: #FFF;
+}
+
+.nextmfaster{
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 100;
+	width: 85px;
+	height: 100%;
+	background: #FFF;
+}
+.prevm{
+	width: 40px;
+	height: 50px;
+	background: url(../images/index/left.png) no-repeat;
+}
+.nextm{
+	width: 40px;
+	height: 50px;
+	background: url(../images/index/right.png) no-repeat;
+}
+
+/*========智能硬件手环========*/
+.mainsport{
+	height: auto;
+}
+.mainsportpic {
+	display: block;
+	margin: 0 auto;
+	width: 86%;
+}
+.mainsportpic img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}      
+/*============================*/
+
+.hardware {
+	margin: 0 auto;
+	height: auto;
+}
+
+.hardware ul {
+	margin: 25px auto;
+	display: flex;
+	width: 86%;
+	height: 1.75rem;
+	clear: both;
+}
+
+.hardware li {
+	height: 100%;
+	flex: 1;
+	color: #000;
+	display: flex;
+	/*居中*/
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.hardware li .hardwarep1 {
+	/*font-size: 0.4rem;*/
+	font-size: 28px;
+	line-height: .60rem;
+}
+.hardware li .hardwarep1 span {
+	color: green;
+}
+
+.hardware li .hardwarep2 {
+	/*font-size: 0.24rem;*/
+	font-size: 20px;
+	line-height: .4rem;
+}
+
+/*==============*/
+.img_hardware {
+	margin: 0 auto;
+	display: flex;
+	width: 86%;
+	height: 7.50rem;
+}
+.img_hardware p {
+	flex: 1;
+	background: #eee;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 5%;
+}
+.img_hardware p img {
+	cursor: pointer;
+	transition: all 0.6s;
+	width: 100%;
+	height: 100%;
+}
+.img_hardware p img:hover {
+	transform: scale(1.1);
+}
+.borff {
+	border-right: 2px solid #fff;
+	border-left: 2px solid #fff;
+}
+/*==========*/
+#hardwaremore {
+	margin: 0 auto;
+	width: 86%;
+	height: 280px;
+	background: #FFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+#hardwaremore a {
+	display: block;
+	width: 250px;
+	height: 75px;
+}
+#hardwaremore p {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	background: url(../images/index/btn_hardware.png) no-repeat 100% 100%;
+	font-size: 30px;
+	line-height: 75px;
+	color: #fff;
+}
+/*=====footer=========*/
+#footer {
+	width: 100%;
+	height: 90px;
+	line-height: 90px;
+	background: #000;
+	color: #FFF;
+	text-align: center;
+}
+#footer .footl{
+	display: inline-block;
+	width: 18%;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+#footer .footl img{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+#footer .footr{
+	display: inline-block;
+	width: 82%;
+	height: 100%;
+	overflow: hidden;
+	text-align: left;
+	float: left;
+	
+}
+#footer .footr span{
+	display: inline-block;
+	text-align: center;
+	font-size: 18px;
+	/*font-size: 0.2rem;*/
+	float: left;
+	margin: 0 15px;
+	width: auto;
+	height: 100%;
+	line-height: 90px;
+}
+/*===================*/

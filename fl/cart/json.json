@@ -1,0 +1,21 @@
+{
+	"type":["水果","动物"],
+	"list":[
+		{"id":"1", "title":"苹果", "content":"好吃的大苹果", "img":"1.jpg", "price":3, "type":"0"},
+		{"id":"2", "title":"香蕉", "content":"香蕉", "img":"2.jpg", "price":2, "type":"0"},
+		{"id":"3", "title":"桃", "content":"猴子的最爱", "img":"3.jpg", "price":4, "type":"0"},
+		{"id":"4", "title":"橘子", "content":"橘子", "img":"4.jpg", "price":5, "type":"0"},
+		{"id":"5", "title":"梨", "content":"清热解毒", "img":"5.jpg", "price":5, "type":"0"},
+		{"id":"6", "title":"杏", "content":"杏", "img":"6.jpg", "price":4, "type":"0"},
+		{"id":"7", "title":"西瓜", "content":"西瓜", "img":"7.jpg", "price":2, "type":"0"},
+		{"id":"8", "title":"哈密瓜", "content":"哈密瓜", "img":"8.jpg", "price":7, "type":"0"},
+		{"id":"9", "title":"菠萝", "content":"菠萝", "img":"9.jpg", "price":20, "type":"0"},
+		{"id":"10", "title":"葡萄", "content":"葡萄", "img":"10.jpg", "price":10, "type":"0"},
+		{"id":"11", "title":"樱桃", "content":"樱桃", "img":"11.jpg", "price":50, "type":"0"},
+		{"id":"12", "title":"草莓", "content":"草莓", "img":"12.jpg", "price":45, "type":"0"},
+		{"id":"13", "title":"猕猴桃", "content":"猕猴桃", "img":"13.jpg", "price":30, "type":"0"},
+		{"id":"14", "title":"火龙果", "content":"火龙果", "img":"14.jpg", "price":15, "type":"0"},
+		{"id":"15", "title":"荔枝", "content":"荔枝", "img":"15.jpg", "price":65, "type":"0"},
+		{"id":"100", "title":"家猫", "content":"黄猫警长", "img":"d0.jpg", "price":1000, "type":"1"}
+	]
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0
+			}
+		</style>
+		<script src="jquery-1.11.3.js"></script>
+		<script>
+			$(function() {
+				$.get("file.json", function(obj) {
+					if(typeof obj == "string") obj = eval("(" + obj + ")");
+					var arr = obj.list;
+					$.each(arr, function(i) {
+						var o = arr[i];
+						//console.log(o.title);
+						var li = $("<li></li>");
+						var img = $("<img>");
+						var a = $("<a></a>");
+						li.append(img);
+						li.append(a);
+						$("ul").append(li);
+						img.attr("src", o.pic).css({ "border": "1px solid red", "width": "100", "height": "100" });
+						a.attr("href", "show.html?id=" + o.id).css("color", "red").html(o.title);
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul></ul>
+	</body>
+</html>

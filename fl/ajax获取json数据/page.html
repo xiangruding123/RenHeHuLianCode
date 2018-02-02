@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+*{margin:0; padding:0}
+li{ list-style:none;}
+ul{height:51px; border-top:1px solid gray; border-left:1px solid gray;}
+ul>li{float:left; height:50px; width:100px; border-bottom:1px solid gray; border-right:1px solid gray;}
+ol{height:31px; margin-top:10px;}
+ol>li{float:left; height:30px; width:30px; line-height:30px; text-align:center; border:1px dashed gray; margin-right:10px; cursor:pointer;}
+
+</style>
+<script src="jquery-1.11.3.js"></script>
+<script>
+
+$(function(){
+	$.get("file.json", function(obj){	
+		//将所有的数据取出
+		if(typeof obj == "string")obj=eval("("+obj+")");
+		var arr=obj.list;
+		//定义每页显示多少条数据
+		var num=5;
+		//计算共有多少条数据
+		var count=arr.length;
+		//计算共有多少页
+		var maxpage=Math.ceil(count/num);
+		//当前显示第几页
+		var page=1;		
+		
+		//定义对象
+		var ul=$("ul");
+		var ol=$("ol");
+		
+		function fnPage(){
+			ul.html("");
+			ol.html("");
+			//求显示内容的下标
+			var min = (page-1)*num;	//
+			var max = min+num-1;	//
+			//console.log( page+" : "+min+" - "+max );
+			//显示内容
+			$.each(arr, function(i){
+				/*
+				page		index
+				1			0-4
+				2			5-9
+				3			10-14
+				*/
+				if(i>=min && i<=max){
+					var o=arr[i];
+					var li=$("<li>"+i+","+o.title+"</li>");
+					ul.append(li);
+				}
+				
+			});
+			//显示页码
+			var tmp=11;//(必须为基数)表示超过该数时，显示省略号
+			var tmp2=(tmp-1)/2;//用该数补全页码
+			/*
+			maxpage = 20
+			page		min		max
+			1			1		11
+			2			1		11
+			5			1		11
+			6			1		11
+			7			2		12
+			8			3		13
+			9			4		14
+			13			8		18
+			14			9		19		
+			15			10		20
+			19			10		20
+			20			10		20
+			*/		
+			//取显示页码的最小值及最大值
+			if(page<=tmp2+1){
+				min=1;
+				max=tmp;
+			}else if(page>=maxpage-tmp2){
+				min=maxpage-tmp2*2;
+				max=maxpage;
+			}else{
+				min=page-tmp2;
+				max=page+tmp2;
+			}
+			//遍历
+			var li;
+			// 描述
+			li=$("<li>共有"+count+"条记录&nbsp;当前第"+page+"页&nbsp;共有"+maxpage+"页</li>");
+			li.css({"width":"300","border":"none"});
+			ol.append(li);
+			// 上一页
+			if(page!=1){
+				li=$("<li>上一页</li>");
+				li.css({"width":"80"});
+				ol.append(li);
+				li.click(function(){
+					page--;
+					if(page==0)page=1;
+					fnPage();
+				});	
+			}
+			// 显示第一页
+			if(min>1){
+				li=$("<li page=1>1</li>");
+				ol.append(li);
+				li.click(function(){
+					page=Number($(this).attr("page"));
+					fnPage();
+				});			
+				li=$("<li>...</li>");
+				li.css({"border":"none"});
+				ol.append(li);
+			}
+			
+			// 显示页码
+			for(var i=min; i<=max; i++){
+				li=$("<li page="+i+">"+i+"</li>");
+				ol.append(li);
+				li.click(function(){
+					//page=Number($(this).html());
+					page=Number($(this).attr("page"));
+					fnPage();
+				});
+			}
+			
+			// 显示最后一页
+			if(max<maxpage){
+				li=$("<li>...</li>");
+				li.css({"border":"none"});
+				ol.append(li);			
+				li=$("<li page="+maxpage+">"+maxpage+"</li>");
+				ol.append(li);
+				li.click(function(){
+					page=Number($(this).attr("page"));
+					fnPage();
+				});
+			}
+			// 下一页
+			if(page!=maxpage){
+				li=$("<li>下一页</li>");
+				li.css({"width":"80"});
+				ol.append(li);
+				li.click(function(){
+					page++;
+					if(page>=maxpage)page=maxpage;
+					fnPage();
+				});	
+			}
+			// 输入框
+			li=$("<li></li>");
+			li.css({"width":"80"});
+			var input=$("<input>");
+			li.append(input);
+			input.val(page);
+			input.css({"width":"60"});
+			input.type="text";
+			input.blur(function(){
+				var n = $(this).val();				
+				if(n!="" && n==parseInt(n)){
+					n=Number(n);
+					if(n>=1 && n<=maxpage){
+						page=n;
+						fnPage();
+					}
+				}
+			});
+			ol.append(li);
+			
+			//将当前页码添加样式
+			$("ol>li[page="+page+"]").css({"background":"skyblue", "color":"white"});
+				
+		}
+		
+		fnPage();
+		
+	});	
+});
+</script>
+</head>
+<body>
+
+<ul></ul><!--信息-->
+<ol></ol><!--页码-->
+
+</body>
+</html>

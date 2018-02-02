@@ -1,0 +1,284 @@
+/*=================*/
+.active{
+	color: #28BF79;
+}
+#box section {
+	display: none;
+}
+#box .name {
+	display: block;
+	margin-bottom: 75px;
+}
+/*==============*/
+#header{
+	width: 100%;
+	height: 103px;
+	background: #363d49;
+}
+.iabout{
+	box-sizing: border-box;
+	text-align: right;
+	width: auto;
+	height: 30px;
+	padding-top: 35px;
+	margin-right: 130px;
+}
+.iabout a{
+	width: auto;
+	height: 30px;
+	font-size: 18px;
+	color: #fff;
+}
+.borf79{
+	border-bottom: 1px soild #28bf79!important;
+}
+#slogan{
+	width: 100%;
+	height: 450px;
+	line-height: 450px;
+	text-align: center;
+	font-size: 60px;
+	color: #fff;
+	display: block;
+	background: url(../images/about/about_0.png) no-repeat center;
+	background-size: 100% 100%;
+}
+/*--------------*/
+#aboutnav{
+	width: 100%;
+	height: 65px;
+	line-height: 65px;
+	background: #f2f3f5;
+	text-align: center;
+}
+#aboutnav ul{
+	white-space: nowrap;
+	display: inline-block;
+}
+#aboutnav li{
+	display: inherit;
+	width: auto;
+	height: 100%;
+	margin: 0 60px;
+	font-size: 18px;
+}
+/*===================*/
+
+.aboutcontent{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.aboutcontent section{
+	margin: 0 auto;
+	height: auto;
+	font-size: 18px;
+}
+.aboutcontent .conabout{
+	margin: 0 auto;
+	width: 82%;
+	height: auto;
+}
+
+.conabout h3{
+	display: inline-block;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	font-size: 26px;
+	padding-left: 3px;
+}
+.conabout h3 span{
+	width: 15px;
+	height: 28px;
+	display: inline-block;
+	color: #28BF79;
+}
+.conabout p{
+	font-size: 20px;
+}
+.conabout h4{
+	line-height: 35px;
+	font-weight: 500;
+	font-size: 22px;
+}
+/*==================*/
+.businesspic{
+	width: 100%;
+	height: 620px;
+	text-align: center;
+	background: url(../images/about/join_us.png) no-repeat 100% 100%;
+	background-size: 100% 100%;
+	display:flex;
+	justify-content:center;
+}
+.businesspic span{
+	align-self:center;
+	display: block;
+	height: auto;
+	width: 100%;
+	font-size: 40px;
+	color: #fff;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.businessperson{
+	padding-top: 30px;
+	width: 82%;
+	height: 420px;
+	margin: 0 auto;
+	font-size: 20px;
+}
+.businessperson h3{
+	display: inline-block;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	font-size: 30px;
+	padding-left: 3px;
+}
+.businessperson h3 span{
+	width: 15px;
+	height: 28px;
+	display: inline-block;
+	color: #28BF79;
+}
+
+.businessperson p{
+	color: #000;
+	font-size: 20px;
+	line-height: 30px;
+	padding: 10px 0;
+}
+
+/*==========*/
+.aboutcontpic{
+	width: 100%;
+	height: 620px;
+	text-align: center;
+	position: relative;
+	background: url(../images/about/cooperation.png) no-repeat 100% 100%;
+	background-size: 100% 100%;
+}
+.aboutcontpic .aboutcontpicp1{
+	width: auto;
+	height: 40px;
+	line-height: 40px;
+	font-size: 40px;
+	color: #fff;
+	position: absolute;
+	left: 32%;
+	top: 30%;
+}
+.aboutcontpic .aboutcontpicp2{
+	width: auto;
+	height: 40px;
+	line-height: 40px;
+	font-size: 40px;
+	color: #fff;
+	position: absolute;
+	left: 43%;
+	top: 40%;
+}
+.aboutcontpic .aboutcontpicp3{
+	width: 190px;
+	background: url(../images/about/btn.png) no-repeat 100% 100%;
+	height: 55px;
+	line-height: 55px;
+	font-size: 28px;
+	color: #fff;
+	position: absolute;
+	left: 45%;
+	top: 80%;
+}
+
+.aboutcontpicword{
+	padding-top: 50px;
+	/*width: 1660px;*/
+	width: 82%;
+	height: 420px;
+	margin: 0 auto;
+	font-size: 20px;
+}
+
+.aboutcontpicword p{
+	color: #000;
+	font-size: 20px;
+	padding: 30px 0;
+}
+
+.contacta{
+	display: inline-block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+
+.aboutcontact{
+	margin: 0 auto;
+	width: 82%;
+	height: 580px;
+}
+
+.aboutcontact h4{
+	display: inline-block;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	font-size: 30px;
+	padding-left: 3px;
+}
+.aboutcontact h4 span{
+	width: 15px;
+	height: 28px;
+	display: inline-block;
+	color: #28BF79;
+}
+.aboutcontact p{
+	font-size: 20px;
+	height: 40px;
+	line-height: 40px;
+}
+/*====footer====*/
+#footer {
+	width: 100%;
+	height: 90px;
+	line-height: 90px;
+	background: #000;
+	color: #FFF;
+	text-align: center;
+}
+#footer .footl{
+	display: inline-block;
+	width: 18%;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+#footer .footl img{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+#footer .footr{
+	display: inline-block;
+	width: 82%;
+	height: 100%;
+	overflow: hidden;
+	text-align: left;
+	float: left;
+	
+}
+#footer .footr span{
+	display: inline-block;
+	text-align: center;
+	/*font-size: 0.2rem;*/
+	font-size: 18px;
+	float: left;
+	margin: 0 15px;
+	width: auto;
+	height: 100%;
+	line-height: 90px;
+}
+/*===================*/

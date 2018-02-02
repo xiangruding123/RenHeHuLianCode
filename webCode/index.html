@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1">
+	    <meta http-eqiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	    <meta content="yes" name="apple-mobile-web-app-capable">
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	    <meta content="telephone=no" name="format-detection">
+	    
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="js/lib/swiper/css/swiper.min.css" />
+		<script>
+	        (function(win,doc){
+	            win.onload = win.onresize = function(){
+	                doc.documentElement.style.fontSize = doc.documentElement.clientWidth*100/1920+'px';
+	            };
+
+//				doc.documentElement.style.fontSize = doc.documentElement.clientWidth*100/1920+'px';
+//	            win.addEventListener("resize",function(){
+//	            	doc.documentElement.style.fontSize = doc.documentElement.clientWidth*100/1920+'px';
+//	            },false);
+	        })(window,document);
+	    </script>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<!--[if lt IE 9]>
+		  	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		  	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<!--=====bannar图模块======-->
+		<section class="bannar w">
+			<div class="iabout">
+				<a href="javascript:void(0);" style="border-bottom: 1px solid #28BF79;">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="tmpl/hardware.html">智能硬件</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="tmpl/about.html">关于人和</a>
+			</div>
+			<!----------------------------->
+			<div class="swiper-container container1 w">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="images/index/banner_1.png" /></div>
+					<div class="swiper-slide"><img src="images/index/banner_2.png" /></div>
+					<div class="swiper-slide"><img src="images/index/banner_3.png" /></div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination pagsing"></div>
+				<!-- 如果需要导航按钮 -->
+				<div class="swiper-button-prev swiperprev"></div>
+				<div class="swiper-button-next swipernext"></div>
+			</div>
+			<!----------------------------->
+			<div class="btnstore">
+				<a href="##"><img src="images/index/btn_apple.png" /></a>
+				<a href="##"><img src="images/index/btn_android.png" /></a>
+			</div>
+		</section>
+		<!--======================-->
+		<section>
+			<h4 class="maintitle w">产品功能特色</h4>
+			<section class="mainmodule">
+		        <div class="swiper-container container2">
+		            <div class="swiper-wrapper">
+		            	<div class="swiper-slide slidem"><img src="images/index/img_active.png"/></div>
+		            	<div class="swiper-slide slidem"><img src="images/index/img_circle.png"/></div>
+		            	<div class="swiper-slide slidem"><img src="images/index/img_food.png"/></div>
+		            	<div class="swiper-slide slidem"><img src="images/index/img_heart.png"/></div>
+		            	<div class="swiper-slide slidem"><img src="images/index/img_integral.png"/></div>
+		            	<div class="swiper-slide slidem"><img src="images/index/img_run.png"/></div>
+		                <div class="swiper-slide slidem"><img src="images/index/img_shop.png"/></div>
+		            </div>
+		            <div class="prevmfaster"><div class="swiper-button-prev prevm"></div></div>
+		　　			<div class="nextmfaster"><div class="swiper-button-next nextm"></div></div>
+		        </div>
+	        </section>
+		</section>
+		
+		<!--=======智能硬件==========-->
+		<section class="mainsport w">
+			<h4 class="maintitle" style="margin: 2% 0;">智能穿戴设备</h4>
+			<div class="mainsportpic">
+				<img src="images/index/banner_hardware.png" />
+			</div>
+		</section>
+		<!--=============-->
+		<section class="hardware w">
+			<ul>
+				<li>
+					<div class="">
+						<p class="hardwarep1"><span>ID115HR</span>智能心率运动手环</p>
+						<p class="hardwarep2">副标题内容例如简约时尚，心率实时监测等</p>
+					</div>
+				</li>
+				<li>
+					<div class="">
+						<p class="hardwarep1"><span>ID115HR</span>智能心率运动手环</p>
+						<p class="hardwarep2">副标题内容例如简约时尚，心率实时监测等</p>
+					</div>
+				</li>
+				<li>
+					<div class="">
+						<p class="hardwarep1"><span>ID115HR</span>智能心率运动手环</p>
+						<p class="hardwarep2">副标题内容例如简约时尚，心率实时监测等</p>
+					</div>
+				</li>
+			</ul>
+			<!-------------->
+			<div class="img_hardware">
+				<p><img src="images/index/img_hardware_1.png" /></p>
+				<p class="borff"><img src="images/index/img_hardware_2.png" /></p>
+				<p><img src="images/index/img_hardware_3.png" /></p>
+			</div>
+			<!------------->
+			<div id="hardwaremore">
+				<a href="tmpl/hardware.html">
+					<p>查看更多</p>
+				</a>
+			</div>
+		</section>
+		<!--====================-->
+		<footer id="footer">
+			<p class="footl"><img src="images/index/img_erweima.png" /></p>
+			<p class="footr">
+				<span>地址：青岛市天泰金融广场B座</span>
+				<span>联系电话：400-8456547</span>
+				<span>@2017 青岛人和互联网络科技有限公司</span>
+				<span>鲁备案号：鲁ICP备17027792号 </span>
+			</p>
+		</footer>
+		<!--=============================-->
+		<script src="js/lib/jquery-2.1.0.js"></script>
+		<script src="js/lib/swiper/js/swiper.jquery.min.js"></script>
+		<script>
+			var mySwiper = new Swiper('.container1', {
+				direction: "horizontal",
+				loop: true, //循环
+				autoplay: 3000,
+				// 如果需要分页器
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				// 如果需要前进后退按钮
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+			})
+			var mySwiper = new Swiper ('.container2', {
+	          	//自动play
+	          	//autoplay : 3000,
+	          	//5屏为一组、一组为一屏
+	          	slidesPerView : 5,
+				slidesPerGroup : 5,
+	            nextButton: '.swiper-button-next',
+	　　　　		prevButton: '.swiper-button-prev',
+	        })
+		</script>
+	</body>
+</html>
