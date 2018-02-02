@@ -6,7 +6,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="description" content="aportpower"/>
-		<title></title>
+		<title>flag选中</title>
 		<style type="text/css">
 			.tubiao{
 				width: 100%;
@@ -21,7 +21,7 @@
 				height: 30px;
 				margin-top: 85px;
 				margin-right: 85px;
-				background: url(../img/tab_collection_normal.png) no-repeat center;
+				background: url(img/005.png) no-repeat center;
 				background-size: 100% 100%;
 				border: 1px solid red;
 			}
@@ -29,7 +29,7 @@
 	</head>
 	<body>
 		<div class="tubiao"><span></span></div>
-		<script src="../js/lib/jquery-2.1.0.js"></script>
+		<script src="js/jquery-2.1.0.js"></script>
 		
 		<script type="text/javascript">
 			
@@ -38,14 +38,14 @@
 				if (flag) {
 					//$(this).css("background","red");
 					
-					$(this).css({"background":"url(../img/tab_collection_light.png) no-repeat center", "background-size":"100% 100%"});
-					console.log("tab_collection_light.png");
+					$(this).css({"background":"url(img/003.png) no-repeat center", "background-size":"100% 100%"});
+					console.log("003.png");
 					flag=0;
 				} else{
 					//$(this).css("background","magenta");
 					
-					$(this).css({"background":"url(../img/tab_collection_normal.png) no-repeat center", "background-size":"100% 100%"});
-					console.log("tab_collection_normal.png");
+					$(this).css({"background":"url(img/005.png) no-repeat center", "background-size":"100% 100%"});
+					console.log("005.png");
 					flag=1;	
 				}
 			})
